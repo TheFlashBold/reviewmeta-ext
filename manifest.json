@@ -1,0 +1,19 @@
+{
+    "name": "Reviewmeta",
+    "version": "1.0",
+    "description": "",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["lib/jquery-latest.js", "src/background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.amazon.de/*/dp/*",
+                "https://www.amazon.de/dp/*"
+            ],
+            "js": ["lib/jquery-latest.js", "src/content.js"]
+        }
+    ],
+    "permissions": ["https://reviewmeta.com/"]
+}
