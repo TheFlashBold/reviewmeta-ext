@@ -4,7 +4,11 @@
     "description": "",
     "manifest_version": 2,
     "background": {
-        "scripts": ["lib/jquery-latest.js", "src/background.js"]
+        "scripts": [
+            "lib/browser-polyfill.min.js",
+            "lib/jquery-latest.js",
+            "src/background.js"
+        ]
     },
     "content_scripts": [
         {
@@ -12,7 +16,11 @@
                 "https://www.amazon.de/*/dp/*",
                 "https://www.amazon.de/dp/*"
             ],
-            "js": ["lib/jquery-latest.js", "src/content.js"]
+            "js": [
+                "lib/browser-polyfill.min.js",
+                "lib/jquery-latest.js",
+                "src/content.js"
+            ]
         }
     ],
     "permissions": ["https://reviewmeta.com/"]

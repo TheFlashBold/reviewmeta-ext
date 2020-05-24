@@ -1,4 +1,4 @@
-const ASIN_REGEX = /\/?([A-Z0-9]{10})\/?/;
+const ASIN_REGEX = /\/([A-Z0-9]{10})(?:\/?|\?|$)/;
 const $ = jQuery.noConflict();
 
 (async () => {
