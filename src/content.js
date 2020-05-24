@@ -2,12 +2,9 @@ const ASIN_REGEX = /\/?([A-Z0-9]{10})\/?/;
 const $ = jQuery.noConflict();
 
 (async () => {
-    if (!ASIN_REGEX.test(window.location.href)) {
-        console.log("lul?");
-        return;
-    }
+    if (!ASIN_REGEX.test(window.location.href)) return;
 
-    const asin = window.location.href.match(ASIN_REGEX)[1];
+    const [, asin] = window.location.href.match(ASIN_REGEX);
     const { notAnalyzed, score, reviews } = await browser.runtime.sendMessage({
         type: "getScore",
         asin,
