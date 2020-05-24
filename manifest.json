@@ -14,7 +14,9 @@
         {
             "matches": [
                 "https://www.amazon.de/*/dp/*",
-                "https://www.amazon.de/dp/*"
+                "https://www.amazon.de/dp/*",
+                "https://www.amazon.com/*/dp/*",
+                "https://www.amazon.com/dp/*"
             ],
             "js": [
                 "lib/browser-polyfill.min.js",

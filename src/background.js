@@ -7,12 +7,16 @@ browser.runtime.onMessage.addListener(function ({ type, ...data }) {
 
 function getScore({ asin }) {
     return new Promise(async (resolve) => {
-        const data = await $.get(`https://reviewmeta.com/amazon-de/${asin}`);
+        const reviewUrl = `https://reviewmeta.com/amazon-de/${asin}`;
+        const data = await $.get(reviewUrl);
         const doc = $(data);
+        const notAnalyzed = $(".no_analysis_top", doc).length > 0;
+
         resolve({
-            score: parseFloat($("#adjusted-rating-large", doc).text()),
-            reviews: parseInt($('[itemprop="ratingCount"]', doc).text()),
-            notAnalyzed: $(".no_analysis_top", doc).length > 0,
+            score: !notAnalyzed && parseFloat($("#adjusted-rating-large", doc).text()),
+            reviews: !notAnalyzed && parseInt($('[itemprop="ratingCount"]', doc).text()),
+            notAnalyzed,
+            reviewUrl,
         });
     });
 }
