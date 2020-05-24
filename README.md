@@ -1,2 +1,2 @@
 # reviewmeta-ext
-Firefox extension for reviewmeta.com
+Firefox & Chrome extension for reviewmeta.com
